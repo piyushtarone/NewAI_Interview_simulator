@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interview Setup</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    select, button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Interview Setup</h1>
+
+    <label for="domain-select">Job Domain:</label>
+    <select id="domain-select">
+      <option value="" disabled selected>Select a domain</option>
+      <option value="Full Stack Developer">Full Stack Developer</option>
+      <option value="Backend Developer">Backend Developer</option>
+      <option value="Power BI Desiner">Power BI Designer</option>
+      <option value="HR Executive">HR Executive</option>
+      <option value="Cyber Security Engineer">Cyber Security Engineer</option>
+      <option value="Data Analysis">Data Analysis</option>
+    </select>
+
+    <label for="level-select">Level:</label>
+    <select id="level-select">
+      <option value="" disabled selected>Select level</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="camera-toggle" /> Enable Camera
+    </label>
+
+    <button id="start-btn">Start Interview</button>
+  </div>
+
+  <script>
+    document.getElementById("start-btn").addEventListener("click", async () => {
+      const domain = document.getElementById("domain-select").value;
+      const level = document.getElementById("level-select").value;
+      const cameraEnabled = document.getElementById("camera-toggle").checked;
+
+      if (!domain || !level) {
+        alert("Please select both domain and level.");
+        return;
+      }
+
+      // Save to sessionStorage
+      sessionStorage.setItem("domain", domain);
+      sessionStorage.setItem("level", level);
+      sessionStorage.setItem("camera", cameraEnabled);
+
+      // Ask permission for mic (and camera if enabled)
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: cameraEnabled, audio: true });
+        console.log("✅ Camera & Microphone permissions granted");
+      } catch (err) {
+        alert("You must grant microphone (and camera if enabled) permissions to proceed.");
+        return;
+      }
+
+      // Redirect to interview page
+      window.location.href = "interview.html";
+    });
+  </script>
+</body>
+</html>

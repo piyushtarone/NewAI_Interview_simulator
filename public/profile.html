@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile & Progress</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js library for creating graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <a href="/">Interview</a>
+            <a href="/profile" class="active">Profile</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <main class="container page-content">
+        <h1>Your Progress</h1>
+        <p>Review your past performance and track your improvement over time.</p>
+        
+        <div class="chart-container">
+            <h3>Average Score Over Time</h3>
+            <canvas id="progress-chart"></canvas>
+        </div>
+
+        <div class="history-container">
+            <h3>Full Interview History</h3>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Domain</th>
+                        <th>Avg. Score</th>
+                        <th>Proficiency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- History rows will be inserted here by profile.js -->
+                    <tr>
+                        <td colspan="4">Loading history...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

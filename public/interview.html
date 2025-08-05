@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Simulator</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- Corrected CSS path -->
+</head>
+<body>
+  <!-- Loader Screen -->
+  <div id="loader">
+    <p id="loader-text">Warming up the AI interviewer...</p>
+  </div>
+
+  <!-- Interview Container -->
+  <div id="interview-container" style="display:none;">
+    <h2 id="question-counter">Question 1 of X</h2>
+    <p id="question-text"></p>
+
+    <!-- Camera Section -->
+    <div class="camera-section">
+      <video id="camera" autoplay muted playsinline style="display:none; width:200px; height:150px; border:1px solid #ccc;"></video>
+      <div class="posture-feedback">
+        <p id="posture-status" class="posture-tag">Posture: Awaiting Analysis</p>
+        <p id="posture-recommendation">Tips will appear here...</p>
+        <p id="eye-contact-status" class="posture-tag">Eye Contact: Awaiting Analysis</p>
+      </div>
+    </div>
+
+    <!-- Answer Section -->
+    <textarea id="typed-answer" placeholder="Your answer will appear here or type manually..."></textarea>
+    <button id="next-question">Next Question</button>
+  </div>
+
+  <!-- Evaluation Section -->
+  <div id="evaluation-section" style="display:none;">
+    <h2>Evaluation Results</h2>
+    <p><strong>Overall Proficiency:</strong> <span id="overall-proficiency"></span></p>
+    <p><strong>Feedback:</strong> <span id="overall-feedback"></span></p>
+    <table id="feedback-table" border="1" style="width:100%; text-align:left;">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Score</th>
+          <th>Improvement</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Required Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+
+  <!-- Corrected JS File Paths -->
+  <script src="/js/pose-analyzer.js"></script>
+  <script src="/js/speech.js"></script>
+  <script src="/js/interview.js"></script>
+</body>
+</html>
