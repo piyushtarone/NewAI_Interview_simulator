@@ -1,5 +1,17 @@
 # Interview_simulator-
 
+How to Contribute in the Repo.:
+1. Fork the repo in your local space or make a codespace.
+2. Make the desired changes into the code.
+3. Aftet that run the following commands:
+ "git status"-{To check which files you have modified}
+ "git add ."-{To add modified files into server}
+ "git commit -m "Add anything according to the changes" -{This is for the understanding of the developers}
+ "git pull origin master" -{"master" because the branch name is master}
+ "git push origin master" -{Now the changes are pushed into the Repo.}
+
+
+
 How to Start the Website:
 
 1. First install the dependencies:
